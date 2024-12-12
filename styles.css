@@ -3,16 +3,16 @@ body {
     font-family: 'Roboto Mono', monospace;
     background: #121212;
     color: #e0e0e0;
-    display: flex;
-    flex-direction: row; /* Desktop: Sidebar on left */
-    height: 100vh;
-    overflow: hidden;
+    display: flex;            /* Desktop: nav on left, content on right */
+    flex-direction: row;
+    min-height: 100vh;        /* Use min-height instead of fixed height */
+    box-sizing: border-box;
   }
   
-  /* Sidebar (Nav) default for desktop */
+  /* Sidebar (Nav) - Desktop defaults */
   nav {
     width: 200px;
-    background: #1e8e1e;
+    background: #1e1e1e;
     border-right: 1px solid #333;
     display: flex;
     flex-direction: column;
@@ -63,8 +63,9 @@ body {
   main {
     flex: 1;
     padding: 2rem;
-    overflow: auto;
     box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   /* Sections inside main */
@@ -94,12 +95,12 @@ body {
   }
   
   /* Responsive Adjustments for Mobile */
+  /* On screens smaller than 600px, nav goes on top */
   @media (max-width: 600px) {
     body {
-      flex-direction: column; /* Mobile: Nav on top */
-      height: auto; 
+      flex-direction: column; /* Mobile: nav on top */
     }
-    
+  
     nav {
       width: 100%;
       border-right: none;
@@ -126,12 +127,12 @@ body {
     nav button {
       font-size: 0.9rem;
       padding: 0.3rem 0.5rem;
-      width: auto; /* Let buttons shrink to content size */
+      width: auto; /* Buttons shrink to fit */
     }
   
     main {
       padding: 1rem;
-      height: auto; 
+      /* main can scroll if content is taller than screen */
     }
   }
   
