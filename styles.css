@@ -8,7 +8,7 @@ body {
     overflow: hidden;
   }
   
-  /* Sidebar (Nav) */
+  /* Sidebar (Nav) - Default for larger screens */
   nav {
     width: 200px;
     background: #1e1e1e;
@@ -16,6 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    box-sizing: border-box;
   }
   
   nav h2 {
@@ -29,7 +30,7 @@ body {
   /* Group title styling */
   .group-title {
     margin: 1rem 0;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Smaller text for group title */
     font-weight: 400;
     color: #00bcd4;
     border-bottom: 1px solid #333;
@@ -45,6 +46,7 @@ body {
     font-size: 1rem;
     color: #e0e0e0;
     cursor: pointer;
+    box-sizing: border-box;
   }
   
   nav button:hover {
@@ -63,6 +65,7 @@ body {
     flex: 1;
     padding: 2rem;
     overflow: auto;
+    box-sizing: border-box;
   }
   
   /* Sections inside main */
@@ -90,5 +93,30 @@ body {
     border: none;
     border-top: 1px solid #333;
     margin: 2rem 0;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    nav {
+      width: 80px;
+    }
+  
+    nav h2 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .group-title {
+      font-size: 0.8rem;
+    }
+  
+    nav button {
+      font-size: 0.9rem;
+      padding: 0.3rem;
+    }
+  
+    main {
+      padding: 1rem;
+    }
   }
   
