@@ -3,11 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Website</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Imrich Berta</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+  
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Welcome to My Site</h1>
-  <p>This is a simple static website hosted on GitHub Pages!</p>
+  <nav>
+    <h2>Imrich Berta</h2>
+    <!-- Bio tab now placed above Health Data -->
+    <button id="bio-tab" class="active" onclick="showSection('bio')">Bio</button>
+    <div style="margin: 1rem 0;"></div>
+    <h3 class="group-title">Health Data</h3>
+    <button id="ems-tab" onclick="showSection('ems')">EMS Data</button>
+  </nav>
+  <main>
+    <section id="bio" class="active">
+      <h1>Bio</h1>
+      <p>
+        Hello, I'm Imrich, a senior data scientist and healthcare innovator.
+        My work involves leveraging advanced analytics, statistical modeling, and
+        interactive dashboards to uncover insights that improve patient care,
+        streamline hospital operations, and support better decision-making.
+      </p>
+      <p>
+        With a background in both healthcare and data science, I combine domain
+        knowledge with technical expertise in machine learning, predictive modeling,
+        and data visualization tools like Plotly and Dash. I’m passionate about
+        building user-friendly solutions that help stakeholders quickly find
+        meaningful patterns in complex healthcare data.
+      </p>
+      <hr>
+      <p>
+        Outside of work, I enjoy contributing to open-source data science projects,
+        mentoring aspiring analysts, and continuously learning new technologies to
+        stay at the forefront of innovation in digital health.
+      </p>
+    </section>
+    
+    <section id="ems">
+      <h1>EMS Data</h1>
+      <p>
+        Below is a live dashboard embedding EMS (Emergency Medical Services) data.
+        Here, we analyze call volumes, response times, dispatch outcomes, and patient
+        demographics. By surfacing these insights, stakeholders can identify where
+        resources are needed most, track performance metrics, and optimize emergency
+        response protocols.
+      </p>
+      <hr>
+      <p>
+        [Replace this paragraph or embed with an iframe or Plotly Dash app once you
+        deploy your dashboard. For now, this is a placeholder.]
+      </p>
+    </section>
+  </main>
+
+  <script>
+    function showSection(sectionId) {
+      // Remove active class from all sections
+      document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
+      // Show selected section
+      document.getElementById(sectionId).classList.add('active');
+
+      // Update tab styles
+      document.getElementById('bio-tab').classList.remove('active');
+      document.getElementById('ems-tab').classList.remove('active');
+
+      if (sectionId === 'bio') {
+        document.getElementById('bio-tab').classList.add('active');
+      } else {
+        document.getElementById('ems-tab').classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>
