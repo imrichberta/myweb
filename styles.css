@@ -1,15 +1,22 @@
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    /* Do NOT hide global overflow, we want global scroll */
+    overflow: auto;
     font-family: 'Roboto Mono', monospace;
     background: #121212;
     color: #e0e0e0;
-    display: flex;            /* Desktop: nav on left, content on right */
-    flex-direction: row;
-    min-height: 100vh;        /* Use min-height instead of fixed height */
+    height: 100%; /* This can help if you want the body to naturally expand */
     box-sizing: border-box;
   }
   
-  /* Sidebar (Nav) - Desktop defaults */
+  body {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar (Nav) */
   nav {
     width: 200px;
     background: #1e1e1e;
@@ -59,25 +66,22 @@ body {
     font-weight: bold;
   }
   
-  /* Main Content Area */
   main {
     flex: 1;
     padding: 2rem;
     box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
+    /* Allow main to expand with content, no forced scrolling here */
+    overflow: visible;
   }
   
-  /* Sections inside main */
   section {
-    display: none; /* hidden by default, controlled by JS */
+    display: none;
   }
   
   section.active {
     display: block;
   }
   
-  /* Headings & Body Text */
   h1, h2, h3 {
     font-weight: 400;
     color: #00bcd4;
@@ -94,11 +98,10 @@ body {
     margin: 2rem 0;
   }
   
-  /* Responsive Adjustments for Mobile */
-  /* On screens smaller than 600px, nav goes on top */
+  /* Responsive */
   @media (max-width: 600px) {
     body {
-      flex-direction: column; /* Mobile: nav on top */
+      flex-direction: column; /* nav on top for mobile */
     }
   
     nav {
@@ -127,12 +130,11 @@ body {
     nav button {
       font-size: 0.9rem;
       padding: 0.3rem 0.5rem;
-      width: auto; /* Buttons shrink to fit */
+      width: auto;
     }
   
     main {
       padding: 1rem;
-      /* main can scroll if content is taller than screen */
     }
   }
   
